@@ -21,21 +21,20 @@
         
         
             <div class="col-sm-10">
-                {{ Form::label('make', 'Make', ['class' => 'control-label']) }}
+                <h5> {{ Form::label('make', 'Make', ['class' => 'control-label']) }}</h5>
                 {{ Form::text('make', '', ['class' => 'form-control'])}}
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                {{ Form::label('model', 'Model', ['class' => 'control-label']) }}
+                <h5>{{ Form::label('model', 'Model', ['class' => 'control-label']) }}</h5>
                 {{ Form::text('model', '', ['class' => 'form-control'])}}
         
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                {{ Form::label('produced_on', 'Produced On', ['class' => 'control-label']) }}
-        {{--        <input type="date" name="produced_on">--}}
+                <h5>{{ Form::label('produced_on', 'Produced On', ['class' => 'control-label']) }}</h5>
                 {{ Form::date('produced_on', null, ['class' => 'input-control date', 'id'=>'datetimepicker3']) }}
         
             </div>
