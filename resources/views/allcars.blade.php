@@ -7,25 +7,29 @@
 
 </head>
 <body>
-@include('messages')
+    <div class="container">
+        <h1>All Cars</h1>
+        @include('messages')
 
-<table class="table table-striped">
+<table class="table table-dark">
     <tr>
-        <th>Car Id</th>
         <th>Make</th>
         <th>Model</th>
+        <th>Produced On</th>
+        <th>View</th>
     </tr>
     @foreach($cars as $car)
         <tr>
-            <td><a href="/car/{{$car->id}}">{{$car->id}}</a></td>
-            <td><a href="/car/{{$car->id}}">{{$car->make}}</a></td>
-            <td><a href="/car/{{$car->id}}">{{$car->model}}</a></td>
+            <td>{{$car->make}}</td>
+            <td>{{$car->model}}</td>
+            <td>{{$car->produced_on}}</td>
+            <td> <button class="btn btn-light"><a href="/car/{{$car->id}}">View Car</a></button> </td>
         </tr>
 
     @endforeach
 </table>
-<a href="/newcar">NEW CAR</a>
-
+<button class="btn btn-dark"><a href="/newcar">Create New Car</a></button>
+    </div>
 
 </body>
 </html>

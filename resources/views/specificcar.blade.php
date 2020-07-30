@@ -7,9 +7,11 @@
 
 </head>
 <body>
-@include('messages')
+    <div class="container">
+<h1 class="text-center">{{$cars->make}} {{$cars->model}}</h1>
+        @include('messages')
 
-<table class="table table-striped">
+<table class="table table-dark">
     <tr>
         <th>Car Id</th>
         <th>Make</th>
@@ -24,11 +26,12 @@
 
 
 </table>
-<a href="/newcar">NEW CAR</a>
+<button class="btn btn-dark"><a href="/car">BACK</a></button>
+
 <br>
 <br>
 <div class="comments well">
-    <h5>Reviews</h5>
+    <h1 class="text-center">Reviews</h1>
     @if (count($cars->reviews)==0)
         <h5>No Reviews</h5>
     @endif
@@ -44,36 +47,32 @@
 
                     </strong>
                     {{$comment->body}} &nbsp;
-                    (
-                    {{$comment->created_at->diffForHumans() }})
-
-
-
                 </li>
-
 
             </article>
 
 
-        </div>
+        </div><br>
     @endforeach
 </div>
-
+<br>
 <div class="card-block">
+    <h2>Write Review</h2>
     <form action="/blogs/{{$cars->id}}/reviews" method="POST">
         {{csrf_field()}}
 
         <div class="form-group">
-            <textarea name="body" class="form-control" placeholder="Your Review here"></textarea>
+            <textarea name="body" class="form-control" placeholder="Add Review"></textarea>
         </div>
         <div class="form-group">
-            {{{ Form::submit('Post Review', ['class' => 'btn btn-info']) }}}
+            {{{ Form::submit('Create Review', ['class' => 'btn btn-dark']) }}}
 
         </div>
 
     </form>
 </div>
 
+    </div>
 
 </body>
 </html>
